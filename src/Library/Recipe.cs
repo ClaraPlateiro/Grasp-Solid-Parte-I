@@ -15,11 +15,6 @@ namespace Full_GRASP_And_SOLID.Library
 
         public Product FinalProduct { get; set; }
 
-        public ArrayList Steps
-        {
-            get { return steps; }
-        }
-
         public void AddStep(Step step)
         {
             this.steps.Add(step);
@@ -44,10 +39,11 @@ namespace Full_GRASP_And_SOLID.Library
         {
             PrintRecipe();
 
-            CostoTotal costoTotalCalculator = new CostoTotal();
-            double costoTotal = costoTotalCalculator.GetProductionCost(this);
+            CostoTotal costoTotalCalculado = new CostoTotal();
+            double costoTotal = costoTotalCalculado.GetProductionCost(steps);
 
-            Console.WriteLine($"Costo total de producción: {costoTotal}");
+            Console.WriteLine($"Costo total de receta: {costoTotal}");
         }
     }
 }
+
